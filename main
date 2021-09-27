@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Sayı giriniz\t: ");
+        int number = scanner.nextInt();
+        int basamakNumber = 0, tempNumber = number, numberCounter = 0;
+        int basamakValue;
+        int result = 0;
+        int basPow;
+        while (tempNumber != 0) {
+            tempNumber /= 10;
+            numberCounter++;
+        }
+        System.out.println("Basamak sayısı\t: " + numberCounter);
+        tempNumber = number;
+        while (tempNumber != 0) {
+            basamakValue = tempNumber % 10;
+            basPow=1;
+            for (int i = 0; i <= basamakNumber; i++) {
+                basPow *= basamakValue;
+            }
+            result+=basPow;
+            tempNumber /= 10;
+        }
+        if (result==number){
+            System.out.println(number+" sayısı bir Armstrong sayıdır.");
+        }else {
+            System.out.println(number+" sayısı bir Armstrong sayısı değildir.");
+        }
+        System.out.println("İşlem sonucu\t: "+result);
+    }
+}
